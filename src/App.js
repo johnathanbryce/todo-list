@@ -4,21 +4,46 @@ import ToDoList from "./components/ToDoList";
 
 const App = () => {
   // input text for todos
-  const [toDoInput, setToDoInput] = useState(" ");
+  const [toDoInput, setToDoInput] = useState("");
   // list of todos to display
   const [todos, setTodos] = useState([]);
 
-  // update & edit todos
+  // edit  todos
   const [toDoEditing, setToDoEditing] = useState(null);
   const [editingText, setEditingText] = useState(" ");
 
-  const removeTodo = (id) => {
-    /* references for custom filter:    
-    
-    https://dev.to/felipepaz/creating-a-custom-array-prototype-filter-in-javascript-2nkc  
-    https://www.youtube.com/watch?v=7-oIxkcAkHs
-    */
+  const submitHandler = (e) => {
+    e.preventDefault();
 
+    // prevent blank and short submissions
+    if (toDoInput.length === 0 || toDoInput.length === 2) {
+      alert("Your todo input is too short!");
+      return;
+    }
+    // prevent long submissions
+    if (toDoInput.length > 40) {
+      alert("Your todo input is too long!");
+      return;
+    }
+
+    // TODO -- replace the alerts with CSS modifications to the input field and hide the "Add To Do" button
+
+    // create a new to-do object to update todos state
+    const newToDo = {
+      id: new Date().getTime(),
+      text: toDoInput,
+      completed: false,
+    };
+    // adds the new to-do object to the displayed list
+    setTodos([...todos, newToDo]);
+    setToDoInput("");
+  };
+
+  const inputChangeHandler = (e) => {
+    setToDoInput(e.target.value);
+  };
+
+  const removeTodo = (id) => {
     //this will be the new todos state to be eventuall set via setToDos()
     let filtered = [];
     // loop through each todo item
@@ -37,42 +62,18 @@ const App = () => {
   };
 
   // Edit the selected to do item
-  const editToDo = (id, text) => {
-    console.log(id, text);
+  const editToDo = (id) => {
     const updatedToDos = [...todos].map((todo) => {
       if (todo.id === id) {
         todo.text = editingText;
       }
       return todo; // returns every todo
     });
-    console.log(updatedToDos);
+
     setTodos(updatedToDos);
+
     setToDoEditing(null);
-    setEditingText(" ");
-  };
-
-  const inputChangeHandler = (e) => {
-    setToDoInput(e.target.value);
-  };
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    // prevent blank submissions & submissions with only 1 characters
-    if (toDoInput.length === 0 || toDoInput.length === 1) {
-      return;
-    }
-
-    // create a new to-do object to update todos state
-    const newToDo = {
-      id: new Date().getTime(),
-      text: toDoInput,
-      completed: false,
-    };
-
-    // adds the new to-do object to the displayed list
-    setTodos([...todos, newToDo]);
-    setToDoInput(" ");
+    setEditingText("");
   };
 
   return (

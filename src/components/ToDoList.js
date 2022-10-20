@@ -11,14 +11,6 @@ function ToDoList({
   setToDoEditing,
   setEditingText,
 }) {
-  /*reference for custom map: 
-  
-  https://www.telerik.com/blogs/beginners-guide-loops-in-react-jsx
-
-  https://blog.hackages.io/why-i-stopped-using-for-loops-and-started-mapping-instead-5f6b579a0525
-
-  */
-
   //TODO -- How do I display/send this properly via the ToDo child component?
 
   let childArray = [];
