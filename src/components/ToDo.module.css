@@ -1,0 +1,89 @@
+.todo_item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 3rem;
+  margin: 2rem;
+
+  border-radius: 0.7rem;
+  border: 0.2rem solid white;
+  background-color: white;
+}
+
+.todo_item > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  height: 2.5rem;
+  padding: 1.5rem;
+  margin: 1rem;
+  flex: 1;
+  cursor: pointer;
+}
+
+.todo_button__delete:hover {
+  height: 3.25rem;
+  background-color: #f05d5e;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.todo_button__submit:hover {
+  height: 3.25rem;
+  background-color: #7ac74f;
+  color: white;
+}
+
+.todo_button__edit:hover {
+  background-color: #9ed4f6;
+  color: white;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.todo_item > input {
+  flex: 55;
+  height: 3.3rem;
+  color: #f05d5e;
+  background-color: white;
+}
+
+.checkbox {
+  flex: 1;
+  display: inline-flex;
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox > input {
+  height: 3.2rem;
+  width: 4rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  border: 1px solid #34495e;
+  border-radius: 4px;
+  outline: none;
+  transition-duration: 0.3s;
+  background-color: white;
+  cursor: pointer;
+}
+
+.checkbox > input:checked {
+  background-color: #7ac74f;
+
+  /* cheeky CSS to hide text when complete */
+  padding-right: 49.5rem;
+
+  position: absolute;
+  bottom: -1.6rem;
+  right: -1rem;
+  margin-right: 1rem;
+}
+
+.checkbox > input:active {
+  border: 2px solid #34495e;
+}

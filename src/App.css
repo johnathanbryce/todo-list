@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.container_input {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 0.2rem solid #284b63;
+
+  border-radius: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.container_input > * {
+  display: flex;
+  padding: 1rem;
+  margin: 3rem;
+  border: 1px solid #9ed4f6;
+}
+
+.container_input_text {
+  flex: 2;
+  width: 52rem;
+  color: #284b63;
+  font-weight: bold;
+}
+
+.container_input > button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.container_input > button:hover {
+  background-color: #7ac74f;
+  color: white;
+}
